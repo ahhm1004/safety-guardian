@@ -29,7 +29,7 @@ VIDEO_CONFIG = {
     'frame_height': 1080,            # 기본 프레임 높이 -> 480에서 1080으로 변경
     'skip_frames': 3,               # 모든 프레임 분석을 위해 1로 변경 (원래 4) -> 2에서 3으로 변경
     'scale_coordinates': True,      # 좌표 자동 스케일링 활성화 여부
-    'override_from_source': False,   # 소스에서 감지된 크기로 config 자동 업데이트 여부 -> True에서 False로 변경
+    'override_from_source': True,   # 소스에서 감지된 크기로 config 자동 업데이트 여부 -> False에서 True로 변경
     'resize_display': True,         # 화면 표시 크기 조절 가능 여부
     'initial_window_width': 1280,   # 초기 창 너비
     'initial_window_height': 720,   # 초기 창 높이
@@ -127,12 +127,12 @@ ACTION_CONFIG = {
 
 # 시각화 설정
 VISUALIZATION_CONFIG = {
-    'show_bbox': False,                  # 바운딩 박스 표시 여부 -> False로 변경
-    'show_skeleton': False,              # 골격 표시 여부 -> False로 변경
-    'show_action_label': False,          # 행동 라벨 표시 여부 -> False로 변경
+    'show_bbox': True,                  # 바운딩 박스 표시 여부 -> False로 변경
+    'show_skeleton': True,              # 골격 표시 여부 -> False로 변경
+    'show_action_label': True,          # 행동 라벨 표시 여부 -> False로 변경
     'show_labels': False,                # 라벨 표시 여부 (추가) -> False로 변경
     'show_confidence': False,            # 신뢰도 표시 여부 (추가) -> False로 변경
-    'show_danger_zones': False,          # 위험 구역 표시 여부 (추가) -> False로 변경
+    'show_danger_zones': True,          # 위험 구역 표시 여부 (추가) -> False로 변경
     'font_size': 1.0,                   # 글자 크기
     'line_thickness': 2,                # 선 두께
     'save_output': True,                # 출력 저장 여부
@@ -162,7 +162,7 @@ ALERT_CONFIG = {
         'sound': 30,           # 소리 알림은 30초마다
         'kakao': 300           # 카카오 메시지 알림은 5분마다
     },
-    'alert_methods': ['console', 'sound'],  # 'console', 'file', 'email', 'api', 'sound', 'kakao'
+    'alert_methods': ['console', 'sound', 'file'],  # 'console', 'file', 'email', 'api', 'sound', 'kakao'
     'alert_file': 'results/alerts.log',
     'email_config': {
         'smtp_server': 'smtp.gmail.com',
@@ -225,8 +225,8 @@ SYSTEM_CONFIG = {
 DANGER_ZONE_CONFIG = {
     'enabled': True,
     'zones': [
-        {"name": '가정집구역', "coordinates": [(379, 182), (75, 448), (69, 497), (254, 499), (477, 247), (379, 181)]},
-        {"name": '빌라구역', "coordinates": [(667, 303), (535, 500), (679, 504), (743, 328), (669, 302)]},
+        {"name": '빌라1', "coordinates": [(436, 244), (211, 500), (284, 502), (468, 254), (438, 242)]},
+        {"name": '빌라2', "coordinates": [(697, 323), (597, 502), (680, 504), (722, 424), (703, 417), (743, 342), (698, 325)]},
     ],
     'original_frame_width': 904,    # 위험 구역 설정 시 사용한 원본 이미지 너비
     'original_frame_height': 510,   # 위험 구역 설정 시 사용한 원본 이미지 높이
