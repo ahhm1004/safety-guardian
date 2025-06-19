@@ -5,15 +5,20 @@
 각 모듈별 설정을 쉽게 변경할 수 있도록 구성되어 있습니다.
 """
 
+import os
+
 # 하드웨어 가속 마스터 설정 (True: GPU 사용, False: CPU 사용)
 USE_GPU = True
 
-# AWS S3 설정
-AWS_CONFIG = {
-    'aws_access_key_id': "REDACTED ",
-    'aws_secret_access_key': "REDACTED ",
-    'region_name': "ap-northeast-2",  # 서울 리전
-    'bucket_name': "dklab.vision"
+# 마스터 설정
+# ... existing code ...
+
+# S3 설정
+S3_CONFIG = {
+    'bucket_name': 'safety-guardian-models',
+    'aws_access_key_id': os.environ.get('AWS_ACCESS_KEY_ID'),
+    'aws_secret_access_key': os.environ.get('AWS_SECRET_ACCESS_KEY'),
+    'aws_region': 'ap-northeast-2'
 }
 
 # 비디오 입력 설정
